@@ -26,36 +26,21 @@ let CoreEngine = {
     Update : function() {},
     Render : function() {
         CoreEngine.ctx.clearRect(0,0,this.width,this.height);
+        
+        let a = new Map(40,35,16,16);
 
-        //let a = new Sprite('Assets/kici.jpg');
-        //a.Draw(50,50);
-    }
-}
+        a.Tiles[100].Sprite = TyleSprites.Ground;
 
-class Sprite {
-    constructor(filePath) {
-        if(filePath != "" && filePath != null && filePath != undefined) {
-            this.image = new Image();
-            this.image.src = filePath;
-        } else {
-            console.log('ERROR: Cannot load file');
-        }
+        a.Draw();
+
     }
-    Draw(x,y,width,height) {
-        if(width != "" && width != null && width != undefined && height != "" && height != null && height != undefined)
-            CoreEngine.ctx.drawImage(this.image,x,y,width,height);
-        else
-            CoreEngine.ctx.drawImage(this.image,x,y,this.image.width,this.image.height);
-    }
-    
 }
 
 window.onload = () => {
 
-    CoreEngine.Init('canvas',800,600);
+    CoreEngine.Init('canvas',1024,720);
 
     CoreEngine.GameLoop();
 
     
-
 }
