@@ -46,16 +46,25 @@ class Map {
         
     }
 
-    Draw(){
-        for(let y=0;y<this.TilesCountHeight;y++){
-            for(let x=0;x<this.TilesCountWidth;x++){
+    Draw(camera){
+
+        let startCol = Math.floor(camera.PositionX / this.TileSizeX),
+            endCol = startCol + Math.floor(camera.CameraWidth / this.TileSizeX),
+            startRow = Math.floor(camera.PositionY / this.TileSizeY),
+            endRow = startRow + Math.floor(camera.CameraHeight / this.TileSizeY),
+            offsetX = -camera.PositionX,
+            offsetY = -camera.PositionY;
+
+        for(let y=startRow;y<endRow;y++){
+            for(let x=startCol;x<endCol;x++){
                 let index = y*this.TilesCountWidth + x;
                 if(this.Tiles[index].Sprite != TyleSprites.Empty)
-                    this.Tiles[index].Sprite.Draw( this.TileSizeX * x + this.WorldPositionX ,this.TileSizeY * y + this.WorldPositionY,this.TileSizeX,this.TileSizeY);
+                    this.Tiles[index].Sprite.Draw( this.TileSizeX * x + this.WorldPositionX + offsetX,this.TileSizeY * y + this.WorldPositionY + offsetY,this.TileSizeX,this.TileSizeY);
             }
         }
     }
 
 
+  
 
 }

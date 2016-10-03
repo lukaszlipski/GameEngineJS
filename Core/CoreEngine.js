@@ -1,3 +1,8 @@
+let GlobalVariables = {
+    TilesMap : new Map(1000,1000,32,32),
+    MainCamera : new Camera(0,0,1024,720)
+}
+
 let CoreEngine = {
     canvas : null,
     ctx : null,
@@ -27,11 +32,10 @@ let CoreEngine = {
     Render : function() {
         CoreEngine.ctx.clearRect(0,0,this.width,this.height);
         
-        let a = new Map(40,35,16,16);
-
-        a.Tiles[100].Sprite = TyleSprites.Ground;
-
-        a.Draw();
+        // TEST ------
+        GlobalVariables.TilesMap.Tiles[25].Sprite = TyleSprites.Ground;
+        GlobalVariables.TilesMap.Draw(GlobalVariables.MainCamera);
+        // -----------
 
     }
 }
