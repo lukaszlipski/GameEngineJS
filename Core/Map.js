@@ -59,7 +59,7 @@ class Map {
             for(let x=startCol;x<endCol;x++){
                 let index = y*this.TilesCountWidth + x;
                 if(this.Tiles[index].Sprite != TyleSprites.Empty)
-                    this.Tiles[index].Sprite.Draw( this.TileSizeX * x + this.WorldPositionX + offsetX,this.TileSizeY * y + this.WorldPositionY + offsetY,this.TileSizeX,this.TileSizeY);
+                    this.Tiles[index].Sprite.Draw( this.TileSizeX * x + this.WorldPositionX + offsetX + this.TileSizeX/2,this.TileSizeY * y + this.WorldPositionY + offsetY + this.TileSizeY/2,this.TileSizeX,this.TileSizeY);
             }
         }
     }
