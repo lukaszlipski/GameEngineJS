@@ -2,6 +2,9 @@ let GlobalVariables = {
     TilesMap : new Map(1000,1000,32,32),
     MainCamera : new Camera(0,0,1024,720)
 }
+//TEST
+    var positionX = 0;
+//
 
 let CoreEngine = {
     canvas : null,
@@ -17,6 +20,9 @@ let CoreEngine = {
         CoreEngine.ctx = canvas.getContext('2d');
         CoreEngine.width = canvas.width = width;
         CoreEngine.height = canvas.height = height;
+
+        Controls.init();
+
     },
     GameLoop : function() {
         window.requestAnimationFrame(CoreEngine.GameLoop);
@@ -35,6 +41,12 @@ let CoreEngine = {
         // TEST ------
         GlobalVariables.TilesMap.Tiles[25].Sprite = TyleSprites.Ground;
         GlobalVariables.TilesMap.Draw(GlobalVariables.MainCamera);
+        let a = new Sprite('Assets/StoneBlock.png');
+        a.Draw(100,100,50,50,positionX);
+
+        if(Controls.isMousePressed(Controls.Mouse.Left))
+            positionX += this.DeltaTime;
+
         // -----------
 
     }
