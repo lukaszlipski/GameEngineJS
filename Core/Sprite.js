@@ -16,14 +16,14 @@ class Sprite {
             CoreEngine.ctx.translate(x,y);
             x = y = 0;
             CoreEngine.ctx.rotate(angle);
-            //CoreEngine.ctx.translate(-width/2,-height/2);
+        
         }
 
         // drawing sprite
         if(width != "" && width != null && width != undefined && height != "" && height != null && height != undefined)
-            CoreEngine.ctx.drawImage(this.image,x,y,width,height);
+            CoreEngine.ctx.drawImage(this.image,x - width/2,y - height/2,width,height);
         else
-            CoreEngine.ctx.drawImage(this.image,x,y,this.image.width,this.image.height);
+            CoreEngine.ctx.drawImage(this.image,x - this.image.width/2,y - this.image.height/2,this.image.width,this.image.height);
 
         // end of rotation
         if(angle != 0 && angle != "" && angle != null && angle != undefined)
