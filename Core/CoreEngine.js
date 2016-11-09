@@ -44,7 +44,7 @@ let CoreEngine = {
         let a = new Sprite('Assets/StoneBlock.png');
         a.Draw(100,100,50,50,positionX);
 
-        if(Controls.isMousePressed(Controls.Mouse.Left))
+        if(Controls.isKeyPressed(Controls.Keys.Space))
             positionX += this.DeltaTime;
 
         // -----------

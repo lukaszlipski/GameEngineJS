@@ -1,3 +1,4 @@
+// TODO : Add mobile touch support
 let Controls = {
     Keys : null,
     Mouse : null,
@@ -52,6 +53,7 @@ Controls.Keys = {
         Pause : 19,
         CapsLock : 20,
         Esc : 27,
+        Space : 32,
         PageUp : 33,
         PageDown : 34,
         End : 35,
